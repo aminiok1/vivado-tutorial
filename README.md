@@ -21,12 +21,6 @@ Usually, hard processor handles data initializations, and other parts of
 the code that have to be executed serially, while the FPGA performs the
 main acceleration task.
 
-![](./media/image1.png)
-
-<p align="center">
-Figure 1. Zynq-7000 architecture
-</p>
-
 Throughout this tutorial, PS (Processing System) refers to the ARM
 microprocessor and PL (Programmable Logic) refers to the FPGA.
 
