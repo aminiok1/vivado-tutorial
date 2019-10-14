@@ -21,9 +21,11 @@ Usually, hard processor handles data initializations, and other parts of
 the code that have to be executed serially, while the FPGA performs the
 main acceleration task.
 
-![](./media/image1.png){width="6.5in" height="3.3333333333333335in"}
+![](./media/image1.png)
 
+<p align="center">
 Figure 1. Zynq-7000 architecture
+</p>
 
 Throughout this tutorial, PS (Processing System) refers to the ARM
 microprocessor and PL (Programmable Logic) refers to the FPGA.
@@ -66,10 +68,11 @@ modules (IPs) on a chip. It allows data to be transferred from PS to PL
 or vice versa or among different blocks in the FPGA. A list of AXI
 signals can be seen in the figure below.
 
-![](./media/image2.png){width="6.5in" height="6.791666666666667in"}
+![](./media/image2.png)
 
 Table 1. AXI Interface Signals (Adapted from [*protocol
 documentation*](http://www.mrc.uidaho.edu/mrc/people/jff/EO_440/Handouts/AMBA%20Protocols/AXI-Stream/IHI0051A_amba4_axi4_stream_v1_0_protocol_spec.pdf))
+
 
 Since we will be using HLS to design the accelerator, we don’t need to
 set these signals in our code and it’s taken care of by Vivado HLS.
@@ -138,9 +141,11 @@ press ok. The default export location is
 project\_name/solution1/impl/ip. Next, we will use Vivado to use the
 generated ip in block design.
 
-![](./media/image3.png){width="6.5in" height="2.2083333333333335in"}
+![](./media/image3.png)
 
+<p align="center">
 Figure 2. Xilinx Vivado HLS Environment
+</p>
 
 **Vivado Design Flow**
 
@@ -151,11 +156,13 @@ going to represent the SoC. In this diagram, we can add the ARM
 processor, xilinx IPs, our own generated IPs, and other blocks that are
 required for interconnections among these blocks.
 
-You can see the final block design in Vivado directory in Google Drive
+You can see the final block design in Vivado directory.
 
-![](./media/image4.png){width="6.5in" height="2.5in"}
+![](./media/image4.png)
 
+<p align="center">
 Figure 3. Vivado Environment
+</p>
 
 Right click on an empty space and select Add IP (ctrl + i), then type
 *ZYNQ7 Processing System* and add it to the diagram. This block
@@ -241,7 +248,7 @@ the top right), we can *Run Synthesis* and after the synthesis is
 finished we can *Run Implementation* which includes optimizing the
 design, placement, and routing, and finally *Generate Bitstream*.
 
-![](./media/image5.png){width="6.5in" height="5.0in"}
+![](./media/image5.png)
 
 Now we can export the hardware platform that we have designed in Vivado,
 so that we can use it in the SDK in order to program the processor. From
@@ -257,7 +264,7 @@ You can see the exported hardware in the Project Explorer window.
 *system.hdf* file contains all the IPs and their addresses. From *File
 &gt; New &gt; Application Project* create a new project with the default
 settings and in the next window select *Hello World* project. Include
-accelerator.c, accelerator.h, and main.c files from Google Drive to the
+accelerator.c, accelerator.h, and main.c files from sdk directory to the
 src directory of the new project. Notice that SDK has also created a
 Board Support Package (BSP) project. BSP contains libraries for ARM’s
 operating system and other features such as TCP/IP.
